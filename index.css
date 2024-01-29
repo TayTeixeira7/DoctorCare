@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+ul { 
+    list-style: none;  
+}
+
+:root {    /* seletor raiz do documento */
+    font-size: 62.5%; /* (10 * 100)/16 = 62.5 isso refere a 10px -> 1rem = 10px */
+    --primary-color: #00856F;
+    --secondary-color: #DCE9E2;
+    --headline: #212529;
+    --paragraph: #495057;
+    --containers: #FFFAF1;
+    --nav-height: 7.2rem;
+}
+
+body {
+    font-family: 'DM Sans';
+    font-size: 1.6rem;  /* significa 16px */
+    text-align: center;
+    overflow: overlay;
+}
+
+/*-------------HEADER----------------*/
+header {
+    width: 37.5rem; /* 375px; */
+    margin-inline: auto;
+    margin-top: calc(4.1rem + var(--nav-height));
+    padding-inline: 2.4rem;
+}
+
+header::before {
+    content: "";
+    width: 100%;  /* % tira a barra de rolagem horizontal */
+    height: calc(108rem + var(--nav-height)); 
+    background-color: var(--secondary-color);
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+header h4 {
+    font-size: 1.4rem; /* significa 14px */
+    color: var(--primary-color);
+    margin-bottom: 1.6rem;
+}
+
+header h1 {
+    font-size: 3.4rem;
+    color: var(--headline);
+    line-height: 130%;  /* 44.2px */
+    margin-bottom: 2.4rem;
+}
+
+header p {
+    font-size: 1.8rem;
+    line-height: 150%; /* 27px */
+    color: var(--paragraph);
+    margin-bottom: 3.2rem;
+    width: 32.7rem;
+    margin-inline: auto;
+}
+
+header button {
+    background-color: var(--primary-color);
+
+    border: none;
+    border-radius: 4rem;
+    margin-bottom: 6rem;
+
+    height: 5.2rem;  /* 52px */
+    width: 26.3rem;  /* 263px */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: #FFFFFF;
+    text-transform: uppercase;  /* transformação para caixa alta */
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+}
+
+#img_main{
+    width: 26.4rem;
+    display: block;
+    margin-inline: auto;
+    object-position: 0 2rem; /* ou 2px */      
+}
+
+.container_numeros {
+    background-color: var(--containers);
+    border: 1px solid var(--secondary-color);
+    border-radius: 0.6rem;
+
+    width: 32.7rem;
+    padding-block: 4rem;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.numero h3 {
+    font-size: 4.8rem;
+    font-weight: 700;
+    line-height: 130%; /* 62.4px */
+    margin-bottom: 0.4rem;
+    color: var(--headline);
+}
+
+.numero p {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    color: var(--primary-color);
+}
+
+/*-------------NAV----------------*/
+nav {
+    display: flex;
+    
+    /*gap: 15.4136rem;*/  /* se usar o gap o justify vai ser center */
+    height: var(--nav-height);
+
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.nav_medidas {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 37.5rem; /* propriedades inves do gap */
+    margin-inline: auto;
+    padding-inline: 2.4rem;
+}
+
+.rolagem {
+    background-color: var(--primary-color);
+    width: 100vw;
+}
+
+.rolagem .logo path {
+    fill: white;
+}
+
+.rolagem .open_menu path {
+    stroke: white;
+}
+
+nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/*-------------MENU EXPANDIDO----------------*/
+body.menu_ativo {
+    overflow: hidden;
+}
+
+body.menu_ativo > :not(nav) {
+    display: none;
+}
+
+.menu, .close_menu, body.menu_ativo .open_menu {    /* torna ocultos */
+    opacity: 0;
+    visibility: hidden;
+}
+
+body.menu_ativo .menu, 
+body.menu_ativo .close_menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.menu_ativo .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--primary-color);
+
+    width: 100vw;
+    height: 100vh;
+    padding-top: var(--nav-height);
+}
+
+body.menu_ativo nav {  /* tira os espaços externos */
+    position: relative;
+}
+
+.opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-top: 6rem;
+
+    color: #FFFFFF;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 3.1rem;
+}
+
+.opcoes a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.menu .button_agenda {
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    padding: 1.6rem 3.2rem;
+    gap: 1.6rem;
+    background-color: #FFFFFF;
+    border-radius: 4rem;
+    margin-top: 4.8rem;
+    margin-bottom: 8rem;
+
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+    text-decoration: none;  /* tira o sublinhado */
+}
+
+.midias_links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+}
+
+body.menu_ativo .logo,       /* torna esses elementos visiveis */
+body.menu_ativo .close_menu {
+    position: relative;
+    z-index: 10;
+}
+
+body.menu_ativo .logo path {
+    fill: white;
+}
+
+body.menu_ativo .close_menu path {
+    stroke: white;
+}
