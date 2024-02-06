@@ -13,12 +13,43 @@ html {
     scroll-behavior: smooth; 
 }
 
+body {
+    font-family: 'DM Sans';
+    font-size: 1.6rem;  /* significa 16px */
+    text-align: center;
+    overflow: overlay;
+
+    background-color: var(--second-background);
+}
+
 ul { 
     list-style: none;  
 }
 
 section {
     padding-block: 10rem; /* 100px */ 
+}
+
+section header h4 {
+    font-size: 1.4rem; /* significa 14px */
+    color: var(--primary-color);
+    margin-bottom: 1.6rem;
+    line-height: 150%; /* 21px */
+
+    letter-spacing: 0.08rem;   /* coloca um espacinho entre as letras */
+    text-transform: uppercase;
+}
+
+section header h2 {
+    font-size: 3rem;
+    line-height: 3.9rem;
+    color: var(--headline);
+}
+
+section .content p {
+    font-size: 1.6rem;
+    line-height: 150%; /* 24px */
+    color: var(--paragraph);
 }
 
 :root {    /* seletor raiz do documento */
@@ -32,21 +63,16 @@ section {
     --second-background: #F7F9F9;
 }
 
-body {
-    font-family: 'DM Sans';
-    font-size: 1.6rem;  /* significa 16px */
-    text-align: center;
-    overflow: overlay;
-
-    background-color: var(--second-background);
-}
-
 /*-------------HEADER----------------*/
-.header_medidas {
+.home_medidas {
     width: 37.5rem; /* 375px; */
     margin-inline: auto;
-    padding-top: calc(4.1rem + var(--nav-height));
+    /*padding-top: calc(4.1rem + var(--nav-height));*/
     padding-inline: 2.4rem;
+}
+
+#home {
+    padding-top: calc(4.1rem + var(--nav-height));
 }
 
 #home::before {   /* cor de fundo personalizada */
@@ -62,12 +88,6 @@ body {
     z-index: -1;
 }
 
-#home h4 {
-    font-size: 1.4rem; /* significa 14px */
-    color: var(--primary-color);
-    margin-bottom: 1.6rem;
-}
-
 #home h1 {
     font-size: 3.4rem;
     color: var(--headline);
@@ -77,8 +97,6 @@ body {
 
 #home p {
     font-size: 1.8rem;
-    line-height: 150%; /* 27px */
-    color: var(--paragraph);
     margin-bottom: 3.2rem;
     width: 32.7rem;
     margin-inline: auto;
@@ -151,15 +169,13 @@ body {
 /*-------------NAV----------------*/
 nav {
     display: flex; 
-    
-    /*gap: 15.4136rem;*/  /* se usar o gap o justify vai ser center */
+    /*gap: 15.4136rem;   se usar o gap o justify vai ser center */
     height: var(--nav-height);
 
     position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 100;  /* joga ele para cima de tudo */
+    width: 100vw;
+    z-index: 100; 
 }
 
 .nav_medidas {
@@ -173,8 +189,7 @@ nav {
 }
 
 .rolagem {
-    background-color: var(--primary-color);
-    width: 100vw;
+    background-color: var(--primary-color); 
 }
 
 .rolagem .logo path {
@@ -197,7 +212,7 @@ body.menu_ativo {
 }
 
 body.menu_ativo > :not(nav) {
-    display: none;
+    visibility: hidden;
 }
 
 .menu, .close_menu, body.menu_ativo .open_menu {    /* torna ocultos */
@@ -227,10 +242,6 @@ body.menu_ativo .menu {
 
     transition: transform 300ms;
     transform: translateY(0);
-}
-
-body.menu_ativo nav {  /* tira os espaços externos */
-    position: relative;
 }
 
 .opcoes {
@@ -291,7 +302,7 @@ body.menu_ativo .close_menu path {
 }
 
 /*-------------SERVICES----------------*/
-.section_medidas {
+.service_medidas {
     width: 37.5rem; 
     margin-inline: auto;
     padding-inline: 2.4rem;  
@@ -301,22 +312,9 @@ body.menu_ativo .close_menu path {
     width: 33.5rem;
 }
 
-#services header h4 {
-    font-size: 1.4rem;
-    line-height: 150%; /* 21px */
-    letter-spacing: 0.08rem;   /* coloca um espacinho entre as letras */
-    text-transform: uppercase;
-    color: var(--primary-color);
-    margin-bottom: 1.6rem;
-}
-
 #services header h2 {
-    font-size: 3rem;
-    line-height: 3.9rem;
-   
-    color: var(--headline);
     margin-bottom: 6rem;
-}
+} 
 
 #services .card {
     display: flex;
@@ -342,8 +340,23 @@ body.menu_ativo .close_menu path {
     color: var(--headline);
 }
 
-#services .card p {
-    font-size: 1.6rem;
-    line-height: 150%; /* 24px */
-    color: var(--paragraph);
+/*------------- ABOUT ----------------*/
+.about_medidas {
+    width: 37.5rem; 
+    margin-inline: auto;
+    padding-inline: 2.4rem;
 }
+
+#about {
+    text-align: left;
+    background-color: var(--containers);
+}
+
+#about header h2 {
+    margin-bottom: 2.4rem;
+}
+
+#about .content p {
+    margin-bottom: 6rem;
+}
+

@@ -14,7 +14,7 @@ function fecharMenu() {
 }
 
 ScrollReveal({
-    origin: 'top',  /* vai se movimentar no sentido do topo para baixo */
-    distance: '30px', /* vai se movimentar 30px */
-    duration: 700, /* vai durar 700ms para mostrar*/
-}).reveal('#home');
+    origin: 'top',  
+    distance: '40px', 
+    duration: 700,
+}).reveal(`#home, #home img, #home .container_numeros, #services, #services header, #services .card, #about, #about header, #about .content`);
