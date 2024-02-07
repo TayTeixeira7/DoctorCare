@@ -22,8 +22,47 @@ body {
     background-color: var(--second-background);
 }
 
+.medidas_padrao {
+    width: 37.5rem; /* 375px; */
+    margin-inline: auto;
+    padding-inline: 2.4rem;
+}
+
 ul { 
     list-style: none;  
+}
+
+img {
+    max-width: 100%;
+}
+
+.button {
+    background-color: var(--primary-color);
+
+    border: none;
+    border-radius: 4rem;
+    margin-bottom: 6rem;
+
+    padding: 1.6rem 3.2rem;
+    width: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+
+    color: #FFFFFF;
+    text-transform: uppercase;  /* transformação para caixa alta */
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: normal;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 200ms; /* faz o :hover ser mais suave */
+}
+
+.button:hover {
+    background-color: var(--hover-button);
 }
 
 section {
@@ -54,23 +93,48 @@ section .content p {
 
 :root {    /* seletor raiz do documento */
     font-size: 62.5%; /* (10 * 100)/16 = 62.5 isso refere a 10px -> 1rem = 10px */
-    --primary-color: #00856F;
-    --secondary-color: #DCE9E2;
-    --headline: #212529;
-    --paragraph: #495057;
-    --containers: #FFFAF1;
+
+    /* variaveis para mudança facil de cor */
+    --hue: 290;  /*170*/
+
+    
+    --primary-color: hsl(var(--hue), 100%, 26%);
+    --secondary-color: hsl(calc(var(--hue) - 22), 23%, 89%);
+    --headline: hsl(210, 11%, 15%);
+    --paragraph: hsl(210, 9%, 31%);
+    --containers: hsl(39, 100%, 97%);
+    --second-background: hsl(180, 14%, 97%);
+    --hover-button: hsl(var(--hue), 100%, 14%);
+
     --nav-height: 7.2rem;
-    --second-background: #F7F9F9;
 }
+
+/*------------- CUSTOM COLORS ----------------*/
+#services .card circle {    /*cor dos checks*/
+    fill: var(--secondary-color);
+}
+
+#navegacao button.open_menu path[stroke="#00856F"],  /*cor do icone de menu*/
+#contact li path {   /*cor dos icones de contato*/
+    stroke: var(--primary-color);
+}
+
+#navegacao.rolagem button.open_menu path[stroke="#00856F"] {   /*cor branca do menu quando ativa rolagem*/
+    stroke: #FFFFFF;
+}
+
+#navegacao .logo path[fill*="#00856F"],   /*cor da logo*/
+#backToTopButton circle {   /*cor do botão flutuante*/
+    fill: var(--primary-color);
+}
+
+body.menu_ativo #navegacao .logo path,   /*cor branca da logo parte CARE*/
+#navegacao.rolagem .logo path {   /*cor branca da logo quando ativa rolagem*/
+    fill: #FFFFFF;
+}
+
 
 /*-------------HEADER----------------*/
-.home_medidas {
-    width: 37.5rem; /* 375px; */
-    margin-inline: auto;
-    /*padding-top: calc(4.1rem + var(--nav-height));*/
-    padding-inline: 2.4rem;
-}
-
 #home {
     padding-top: calc(4.1rem + var(--nav-height));
 }
@@ -102,37 +166,15 @@ section .content p {
     margin-inline: auto;
 }
 
-#home button {
-    background-color: var(--primary-color);
-
-    border: none;
-    border-radius: 4rem;
-    margin-bottom: 6rem;
-
-    height: 5.2rem;  /* 52px */
-    width: 26.3rem;  /* 263px */
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1.6rem;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    color: #FFFFFF;
-    text-transform: uppercase;  /* transformação para caixa alta */
-    font-size: 1.4rem;
-    font-weight: 700;
-    line-height: normal;
-    cursor: pointer;
+#home .button {
+    margin-inline: auto;
 }
 
 #img_main{
     width: 26.4rem;
     display: block;
     margin-inline: auto;
-    object-position: 0 2rem; /* ou 2px */      
+    object-position: 0.2rem; /* ou 2px */      
 }
 
 #home .container_numeros {
@@ -169,8 +211,8 @@ section .content p {
 /*-------------NAV----------------*/
 nav {
     display: flex; 
+    height: var(--nav-height);  
     /*gap: 15.4136rem;   se usar o gap o justify vai ser center */
-    height: var(--nav-height);
 
     position: fixed;
     top: 0;
@@ -190,14 +232,6 @@ nav {
 
 .rolagem {
     background-color: var(--primary-color); 
-}
-
-.rolagem .logo path {
-    fill: white;
-}
-
-.rolagem .open_menu path {
-    stroke: white;
 }
 
 nav button {
@@ -280,6 +314,12 @@ body.menu_ativo .menu {
     text-decoration: none;  /* tira o sublinhado */
 }
 
+.button_agenda:hover {
+    color: #FFFFFF;
+    background-color: var(--primary-color);
+    filter: brightness(1.3);  /* coloca alguns efeitos */
+}
+
 .midias_links {
     display: flex;
     align-items: center;
@@ -302,12 +342,6 @@ body.menu_ativo .close_menu path {
 }
 
 /*-------------SERVICES----------------*/
-.service_medidas {
-    width: 37.5rem; 
-    margin-inline: auto;
-    padding-inline: 2.4rem;  
-}
-
 .medida {
     width: 33.5rem;
 }
@@ -341,12 +375,6 @@ body.menu_ativo .close_menu path {
 }
 
 /*------------- ABOUT ----------------*/
-.about_medidas {
-    width: 37.5rem; 
-    margin-inline: auto;
-    padding-inline: 2.4rem;
-}
-
 #about {
     text-align: left;
     background-color: var(--containers);
@@ -358,5 +386,84 @@ body.menu_ativo .close_menu path {
 
 #about .content p {
     margin-bottom: 6rem;
+}
+
+/*------------- CONTACT ----------------*/
+#contact {
+    text-align: left;
+}
+
+#contact header {
+    margin-bottom: 3.2rem;
+    width: 29.7rem;
+}
+
+#contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    margin-bottom: 3.2rem;
+}
+
+#contact ul li {
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+
+    color: var(--paragraph);
+    line-height: 150%; /* 24px */
+}
+
+/*------------- FOOTER ----------------*/
+footer {
+    background-color: var(--primary-color);
+    padding-block: 6rem;
+    text-align: left;
+}
+
+footer .logo {
+    display: inline-block;
+    margin-bottom: 2.4rem;
+}
+
+footer .logo svg {
+    width: 23.6rem;
+    height: 3.1rem;
+}
+
+footer .logo path {
+    fill: #FFFFFF;
+}
+
+footer p {
+    color: var(--containers);
+    line-height: 2;
+    margin-bottom: 3.2rem;
+}
+
+footer .midias_links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 3.2rem;
+}
+
+/*------------- BOTÃO FLUTUANTE ----------------*/
+#backToTopButton {
+    position: fixed;  /* faz ele subir uma camada */
+    bottom: 1rem;
+    right: 2.3rem;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(100%);
+    transition: 200ms;
+}
+#backToTopButton.show {  /* fica "visivel" quando ativar a class com JS */
+    opacity: 10;
+    visibility: visible;
+    transform: translateY(0);
 }
 
